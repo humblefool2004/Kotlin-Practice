@@ -29,9 +29,4 @@ The goal of this repo is to track my progress in Kotlin programming, which will 
 - More Kotlin practice (collections, coroutines, advanced OOP)
 - Start Android-specific projects with Kotlin
 
-## 💡 Notes
-- **.md extension**: Markdown file used for formatting text with headers, lists, code, etc. GitHub automatically renders it nicely.
-- **Updating README**: Keep it updated as you progress. It helps track your learning and shows your repo clearly to others.
-
----
 💡 Feedback and suggestions are always welcome!
