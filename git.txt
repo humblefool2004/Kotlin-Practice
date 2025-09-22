@@ -1,0 +1,121 @@
+git status --porcelain
+//What this does: shows untracked/modified files in a compact form so you can review what git add will stage.
+
+Step-by-step (run each in your terminal)
+git init  (if not done already)
+1) (Optional, but recommended) — Make sure Git knows who you are
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+
+
+What this does: sets the name/email that will appear on your commits. Do this once per machine.
+
+2) Rename the default branch to main
+git branch -M main
+
+
+What this does: renames the current branch from master (or whatever) to main — modern convention and matches GitHub’s default.
+
+3) Create a .gitignore to avoid committing IDE/build files
+cat > .gitignore << 'EOF'
+# IntelliJ / Android Studio
+.idea/
+*.iml
+out/
+build/
+
+# OS files
+.DS_Store
+Thumbs.db
+EOF
+
+
+What this does: creates a .gitignore file with common patterns you don’t want in the repo (IDE metadata, build outputs). This prevents accidental commits of bulky or private files.
+
+4) See current git status (check what will be committed)
+git status --porcelain
+
+
+What this does: shows untracked/modified files in a compact form so you can review what git add will stage.
+
+5) Stage everything you do want to commit
+git add .
+
+
+What this does: stages all files (excluding those matched by .gitignore) for the next commit.
+
+Tip: if you want to be more selective, use git add <path> for specific files.
+
+6) Commit the staged files with a message
+git commit -m "Initial commit: kotlin practice + README + .gitignore"
+
+
+What this does: makes a snapshot (commit) of the current staged files. This is now saved in your local repo history.
+
+7) Create a remote repository on GitHub
+
+Option A – Using the website (recommended if unfamiliar with gh)
+
+Go to https://github.com
+ → New repository
+
+Name it Kotlin-Practice (or your preferred name).
+
+Choose Public (recommended for portfolio) or Private if you prefer.
+
+Do not initialize with a README (you already have one).
+
+Click Create repository.
+
+What this does: creates an empty remote GitHub repo and shows you the remote URL to use.
+
+Option B – Using GitHub CLI (gh)
+
+gh repo create Kotlin-Practice --public --source=. --remote=origin --push
+
+
+What this does: (if you have gh logged in) creates the repo and pushes your local code in one command.
+
+8) Link your local repo to GitHub (replace the URL)
+git remote add origin https://github.com/<your-username>/Kotlin-Practice.git
+
+
+What this does: adds a remote called origin pointing to the GitHub repository you created. Replace <your-username> with your GitHub username.
+
+9) Push your local main branch to GitHub
+git push -u origin main
+
+
+What this does: uploads your main branch to GitHub and sets origin/main as the upstream so future git push/git pull are simpler.
+
+10) Verify it worked
+git remote -v
+git log --oneline -n 5
+
+
+What this does: git remote -v shows the remote URL(s). git log displays recent commits so you can confirm your commit is present.
+
+Troubleshooting / common follow-ups
+
+If you accidentally committed .idea or out before adding .gitignore:
+
+git rm -r --cached .idea out
+git commit -m "Remove IDE and build files from repo"
+git push
+
+
+What it does: untracks those files (removes from the repo but keeps them locally) and commits the removal.
+
+If you get error: failed to push some refs — run:
+
+git pull --rebase origin main
+git push
+
+
+What it does: fetches remote changes (if any), reapplies your commits, then pushes.
+
+Want the repo public or private?
+
+Public: good for portfolio/visibility.
+
+Private: ok if you want to keep practice private. You can always change visibility in GitHub repo settings later.
