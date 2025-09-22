@@ -119,3 +119,7 @@ Want the repo public or private?
 Public: good for portfolio/visibility.
 
 Private: ok if you want to keep practice private. You can always change visibility in GitHub repo settings later.
+
+
+git reset HEAD~1
+git reset --soft HEAD~1

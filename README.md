@@ -9,9 +9,29 @@ This repository contains my Kotlin practice files as I learn the language for An
 ## 🎯 Purpose
 The goal of this repo is to track my progress in Kotlin programming, which will help me build a strong foundation for Android development.
 
+## 🏃 How to Run the Code
+1. **Using IntelliJ IDEA (recommended)**:
+    - Open IntelliJ IDEA → `File > Open` → Select this repository folder.
+    - Navigate to the Kotlin file in `src/main/kotlin/`.
+    - Right-click the file → `Run 'FileNameKt'`.
+
+2. **Using Command Line** (if Kotlin is installed):
+    - Compile:
+      ```bash
+      kotlinc src/main/kotlin/FileName.kt -include-runtime -d FileName.jar
+      ```  
+    - Run:
+      ```bash
+      java -jar FileName.jar
+      ```
+
 ## 🚀 Next Steps
 - More Kotlin practice (collections, coroutines, advanced OOP)
 - Start Android-specific projects with Kotlin
+
+## 💡 Notes
+- **.md extension**: Markdown file used for formatting text with headers, lists, code, etc. GitHub automatically renders it nicely.
+- **Updating README**: Keep it updated as you progress. It helps track your learning and shows your repo clearly to others.
 
 ---
 💡 Feedback and suggestions are always welcome!
