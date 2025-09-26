@@ -25,8 +25,5 @@ The goal of this repo is to track my progress in Kotlin programming, which will 
       java -jar FileName.jar
       ```
 
-## 🚀 Next Steps
-- More Kotlin practice (collections, coroutines, advanced OOP)
-- Start Android-specific projects with Kotlin
 
 💡 Feedback and suggestions are always welcome!
