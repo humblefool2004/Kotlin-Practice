@@ -1,42 +1,43 @@
 fun main(){
-    //1. let → transformation & null safety
-    val name: String? = "Saheel"
+    val user = Userq()
+    user.firstName="Alex"
+    user.lastName="Dobbin"
+    user.age= 23
 
-    val length = name?.let {
-        println("The name is $it")
-        it.length
+    // the with scope functions return the last line of code
+    with(user){
+        firstName="Saheel"
+        lastName= "Mohanta"
+        age=21
+        this //the with will return the Userq itself
     }
 
-    println(length) // 6
+    //apply returns the thing in which it is applied
+    //also scope is used to directly access things
+    val user2= Userq().apply {
+        firstName="Rahul"
+        lastName= "Ban"
+        age= 65
+    }.also{ println(it)}
 
-   // 2. run → operate & return a result
-    val greeting = "Hello".run {
-        this + " Saheel"
+    // let scope function
+    // returns the last line
+    val text: String?=null
+    text?.let{
+        println(it)   // executes this if the value is not null
     }
-    println(greeting) // Hello Saheel
 
-   // 3. with → multiple operations
-    val list = mutableListOf(1, 2, 3)
-
-    val result = with(list) {
-        add(4)
-        add(5)
-        size  // returns 5
+    // run scope fucnction is the combination of with and let
+    // returns last line
+    val user3: Userq? = null
+    user3?.run{
+        println(firstName)
+        println(lastName)
     }
-    println(result)
 
-  //  4. apply → configure objects
- /*   val user = User("Saheel", 21).apply {
-        age = 22
-        println("Configuring user $name")
-    }
-    println(user) // returns the User itself*/
-
-   // 5. also → side effects
-    val numbers = mutableListOf(1, 2, 3).also {
-        println("List before adding: $it")
-    }.also {
-        it.add(4)
-    }
-    println(numbers) // [1, 2, 3, 4]
+}
+class Userq(){
+    var firstName = ""
+    var lastName = ""
+    var age = -1
 }
